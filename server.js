@@ -27,8 +27,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(proces.env.PORT || 3000, () => {
-    console.log(`app runs on port ${proces.env.PORT}`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app runs on port ${process.env.PORT}`)
 });
 
 // app.listen(3000, () => {
