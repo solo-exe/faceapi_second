@@ -27,10 +27,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(3000, () => {
-    console.log('app runs on port 3000')
+app.listen(proces.env.PORT || 3000, () => {
+    console.log(`app runs on port ${proces.env.PORT}`)
 });
 
+// app.listen(3000, () => {
+//     console.log('app runs on port 3000')
+// });
 
 app.post('/signin', (req, res) => signin.handleSignin(req, res, db, bcrypt));
 app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt));
