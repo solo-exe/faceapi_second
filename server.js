@@ -35,6 +35,7 @@ app.listen(process.env.PORT || 3000, () => {
 //     console.log('app runs on port 3000')
 // });
 
+app.get('/', (req, res) => {res.send('it is working')});
 app.post('/signin', (req, res) => signin.handleSignin(req, res, db, bcrypt));
 app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt));
 app.get('/profile/:id', (req, res) => profile.handleProfile(req, res, db));
