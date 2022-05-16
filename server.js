@@ -22,7 +22,7 @@ const db = knex({
     // password: 'freetown234',
     // database: 'smartbrain',
     }
-});
+});0
 
 // db.select('*').from('users').then(data =>console.log(data));
 
@@ -30,13 +30,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`app runs on port ${process.env.PORT}`)
-});
-
-// app.listen(3000, () => {
-//     console.log('app runs on port 3000')
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log(`app runs on port ${process.env.PORT}`)
 // });
+
+app.listen(3000, () => {
+    console.log('app runs on port 3000')
+});
 
 app.get('/', (req, res) => {res.send('it is working')});
 app.post('/signin', (req, res) => signin.handleSignin(req, res, db, bcrypt));
@@ -46,15 +46,15 @@ app.put('/image', (req, res) => image.handleImage(req, res, db));
 app.post('/imageurl', (req, res) => image.handleApiCall(req, res));
 
 
-// app.get('/passhash', (req, res) => {
-//     const saltRounds = 10;
-//     const myPlaintextPassword = 'drumsets';
+app.get('/passhash', (req, res) => {
+    const saltRounds = 10;
+    const myPlaintextPassword = 'drumsets';
 
-//     bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
-//         res.send(hash);
-//     });
+    bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
+        res.send(hash);
+    });
 
-// });
+});
 
 // app.get('/passcheck', (req, res) => {
 //     const pass = 'drumsets'

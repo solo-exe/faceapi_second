@@ -19,10 +19,10 @@ const handleSignin = (req, res, db, bcrypt) => {
             } else {
                 res.status(400).json('incorrect credentials')
                 console.log('First Error Address')
-            }
+            };
         }).catch(err => res.status(400).json('incorrect credentials'))
-}
+};
 
 module.exports = {
     handleSignin: handleSignin
-} 
+};
